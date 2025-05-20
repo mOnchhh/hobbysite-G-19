@@ -4,12 +4,12 @@ from .views import (ThreadListView, ThreadDetailView, ThreadUpdateView, ThreadDe
                     ThreadCreateView, ThreadGalleryView)
 
 urlpatterns = [
-    path('wiki/articles', ThreadListView.as_view(), name='thread_page'),
-    path('wiki/article/<int:pk>', ThreadDetailView.as_view(), name='thread'),
-    path('wiki/article/<int:pk>/edit', ThreadUpdateView.as_view(), name='update'),
-    path('wiki/article/add', ThreadCreateView.as_view(), name='create'),
-    path('wiki/article/<int:pk>/delete', ThreadDeleteView.as_view(), name='delete'),
-    path('wiki/article/gallery', ThreadGalleryView.as_view(), name='gallery'),
+    path('forum/threads', ThreadListView.as_view(), name='thread_page'),
+    path('forum/thread/<int:pk>', ThreadDetailView.as_view(), name='thread'),
+    path('forum/thread/<int:pk>/edit', ThreadUpdateView.as_view(), name='update'),
+    path('forum/thread/add', ThreadCreateView.as_view(), name='create'),
+    path('forum/thread/<int:pk>/delete', ThreadDeleteView.as_view(), name='delete'),
+    path('forum/thread/gallery', ThreadGalleryView.as_view(), name='gallery'),
 ]
 
-app_name = 'wiki'
+app_name = 'forum'

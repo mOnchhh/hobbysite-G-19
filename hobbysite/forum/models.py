@@ -19,6 +19,7 @@ class Thread(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
+        null=True
     )
     category = models.ForeignKey(
         ThreadCategory,
