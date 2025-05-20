@@ -3,6 +3,8 @@ from django.urls import reverse
 from datetime import datetime
 from django.conf import settings
 
+from accounts.models import Profile
+
 class ArticleCategory(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -16,7 +18,7 @@ class ArticleCategory(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        Profile,
         on_delete=models.SET_NULL,
         null=True,
     )
