@@ -18,7 +18,7 @@ class ArticleCategory(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(
-        Profile,
+        settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
         null=True,
     )
@@ -62,7 +62,7 @@ class Article(models.Model):
     
 class Comment(models.Model):
     author = models.ForeignKey(
-        Profile,
+        settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
         null=True
     )
