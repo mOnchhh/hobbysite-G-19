@@ -99,7 +99,7 @@ class ArticleDeleteView(DeleteView):
     model = Article
 
     def get_success_url(self):
-        return reverse_lazy('wiki:article_site')
+        return reverse_lazy('wiki:article_page')
 
 class ArticleGalleryView(ListView):
     model = Article
