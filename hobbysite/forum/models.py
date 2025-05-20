@@ -24,7 +24,7 @@ class Thread(models.Model):
     category = models.ForeignKey(
         ThreadCategory,
         on_delete=models.SET_NULL,
-        related_name = "post",
+        related_name = "thread",
         null=True
     )
     entry = models.TextField()
@@ -72,4 +72,4 @@ class Comment(models.Model):
         return f"{self.title} - {self.entry}"
     
     def get_absolute_url(self):
-        return reverse('forum:post', args=[str(self.pk)])
+        return reverse('forum:thread', args=[str(self.pk)])
