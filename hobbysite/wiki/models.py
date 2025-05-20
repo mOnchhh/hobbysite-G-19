@@ -59,16 +59,16 @@ class Article(models.Model):
         return reverse('wiki:delete', args=[str(self.pk)])
     
 class Comment(models.Model):
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True
+    )
     article = models.ForeignKey(
         Article,
         on_delete=models.CASCADE,
         null=True,
         related_name='comment'
-    )
-    author = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.SET_NULL,
-        null=True
     )
     entry = models.TextField()
     created_on = models.DateTimeField(
