@@ -1,7 +1,10 @@
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
 
-class PostCategory(models.Model):
+from accounts.models import Profile
+
+class ThreadCategory(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
 
@@ -11,10 +14,14 @@ class PostCategory(models.Model):
     def __str__(self):
         return '{}'.format(self.name)
     
-class Post(models.Model):
+class Thread(models.Model):
     title = models.CharField(max_length=255)
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+    )
     category = models.ForeignKey(
-        PostCategory,
+        ThreadCategory,
         on_delete=models.SET_NULL,
         related_name = "post",
         null=True
