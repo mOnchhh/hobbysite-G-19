@@ -27,6 +27,11 @@ class Thread(models.Model):
         null=True
     )
     entry = models.TextField()
+    image = models.ImageField(
+        upload_to='media/images/',
+        null=True,
+        blank=True,
+    )
     created_on = models.DateTimeField(
         auto_now_add=True,
         null=True
@@ -35,6 +40,29 @@ class Thread(models.Model):
         auto_now=True,
         null=True
     )
+
+class Comment(models.Model):
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True
+    )
+    thread = models.ForeignKey(
+        Thread,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name='comment'
+    )
+    entry = models.TextField()
+    created_on = models.DateTimeField(
+        auto_now_add=True,
+        null=True
+    )
+    updated_on = models.DateTimeField(
+        auto_now=True,
+        null=True
+    )
+
 
     class Meta:
         ordering = ['-created_on']
