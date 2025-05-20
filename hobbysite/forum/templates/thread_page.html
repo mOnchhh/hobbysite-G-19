@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="main_container">
+    <div class="left_container">
+        <div class="left_header">
+            Welcome to the <span class="different-color"><b>Wiki</b></span>, {{request.user.username}}.<br>
+            <p class="sub_text">
+                See what everyone is talking about here on the Forum, OR start a discussion yourself.
+            </p>
+        </div>
+        <div class="left_body">
+            <form method="get">
+                <label for="category_select">Category:</label>
+                <select id="category" name="category">
+                    {% for group in category %}
+                    <option value="{{ group.pk }}">{{ group }}</option>
+                    {% endfor %}
+                </select>
+                
+                <ul>
+                    <div class="thread_list">
+                        {% for thread in object_list %}
+                        {% if selected_category == 0 or selected_category == thread.category.pk %}
+                            {% if request.user.username != thread.forum_author.username %}
+                                <div class="select_thread">
+                                    <li><h2> <span class="different-color">></span> 
+                                        
+                                        <span class="hover-effect">
+                                            <a href="{{thread.get_absolute_url}}">
+                                            {{thread}}
+                                            </h2></a>    
+                                        </span>
+                                    </li>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    </div>                    
+                </ul>
+
+                <button type="submit" value="filter" style="cursor: pointer;"> FILTER </button>
+            </form>
+
+            <form method="get" class="filter_buttons">
+                <input type="hidden" name="selected_category" value="0">
+                <button type="submit" value="reset" style="cursor: pointer;"> SEE ALL </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="right_container">
+        <!-- <div class="inner_right_container"> -->
+            <div class="right_header">
+                Your <span class="different-color"><b>Threads</b></span>
+            </div>
+                <div class="threads_written">
+                    <ul>
+                        {% for thread in object_list %}
+                            {% if request.user.username == thread.forum_author.username %}
+                                <div class="select_thread">
+                                    <li><h2> <span class="different-color">></span> 
+                                        
+                                        <span class="hover-effect">
+                                            <a href="{{thread.get_absolute_url}}" style="font-size: 24px;">
+                                            {{thread}}
+                                            </h2></a>    
+                                        </span>
+                                    </li>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+        <!-- </div> -->
+    </div>
+</div>
+
+<div class="thread_form_segment">  
+    <div class="inner_thread_form_segment">
+       
+        <div class="thread_content">
+            <div  style="display: flex; justify-content: center;margin-top:70px;transform:scale(2.4);">
+                <button><a href="thread/add" style="color:white;">Create Thread</a></button>
+            </div>
+        <div class="thread_content">
+            <div  style="display: flex; justify-content: center;transform:scale(2.4);margin-top:40px;">
+                <button><a href="thread/gallery" style="color:white;">View Gallery</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+
+
+
+

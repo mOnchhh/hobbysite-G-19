@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="thread_page">
+    <div class="thread_page_content">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_div}}
+            <button>Update</button>
+        </form>
+        <br>
+     
+        <form action="{{thread.get_delete_url}}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete?</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
