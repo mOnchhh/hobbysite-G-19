@@ -3,8 +3,6 @@ from django.urls import reverse
 from datetime import datetime
 from django.conf import settings
 
-from accounts.models import Profile
-
 class ArticleCategory(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
