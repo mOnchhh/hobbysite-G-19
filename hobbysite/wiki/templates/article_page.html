@@ -54,28 +54,35 @@
         <div class="right_header">
             Your <span class="different-color"><b>Articles</b></span>
         </div>
-            <div class="articles_written">
-                <ul>
-                    {% for article in object_list %}
-                        {% if request.user.username == article.wiki_author.username %}
-                            <div class="select_article">
-                                <li><h2> <span class="different-color">></span> 
-                                    
-                                    <span class="hover-effect">
-                                        <a href="{{article.get_absolute_url}}" style="font-size: 24px;">
-                                        {{article}}
-                                        </h2></a>    
-                                    </span>
-                                </li>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-            </div>
+        <div class="articles_written">
+            <ul>
+                {% for article in object_list %}
+                    {% if request.user.username == article.wiki_author.username %}
+                        <div class="select_article">
+                            <li><h2> <span class="different-color">></span> 
+                                
+                                <span class="hover-effect">
+                                    <a href="{{article.get_absolute_url}}" style="font-size: 24px;">
+                                    {{article}}
+                                    </h2></a>    
+                                </span>
+                            </li>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="article_form_container">
+        <div class="inner_article_form_container">
+            <button><a href="article/add">Create Article</a></button>
+            <button><a href="article/gallery">View Gallery</a></button>
+        </div>
+    </div>
     </div>
 </div>
 
-<div class="article_form_segment">  
+
+<!-- <div class="article_form_segment">  
     <div class="inner_article_form_segment">
        
         <div class="article_content">
@@ -88,6 +95,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
     
 {% endblock %}
+

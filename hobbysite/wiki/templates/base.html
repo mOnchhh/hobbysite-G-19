@@ -5,23 +5,18 @@
     <style>
 
         @font-face {
-            font-family: 'Noirden-Regular';
-            src: url('/static/fonts/Noirden-Regular.otf') format('truetype');
+            font-family: 'Paradose';
+            src: url('/static/fonts/WsParadoseRegular-1jPAe.ttf') format('truetype');
         }
 
         @font-face {
-            font-family: 'visby-medium';
-            src: url('/static/fonts/Fontspring-DEMO-visbycf-medium.otf') format('truetype');
+            font-family: 'RussoOne';
+            src: url('/static/fonts/RussoOne-Regular.ttf') format('truetype');
         }
 
         @font-face {
-            font-family: 'Avenir-Roman';
-            src: url('/static/fonts/AvenirLTStd-Roman.otf') format('truetype');
-        }
-
-        @font-face {
-            font-family: 'visby-extrabold';
-            src: url('/static/fonts/Fontspring-DEMO-visbycf-extrabold.otf') format('truetype');
+            font-family: 'Slabo';
+            src: url('/static/fonts/Slabo27px-Regular.otf') format('truetype');
         }
 
 
@@ -37,8 +32,8 @@
 
         body, pre{
             animation: fadeIn 1s ease-in-out;
-            background: linear-gradient(to right, #2e97ff,#f1a4f9, #c2d8e3);
-            font-family:Avenir-Roman, Arial, sans-serif;
+            background: linear-gradient(to bottom, #a7d3ff, #ffffff);
+            font-family:Slabo, Arial, sans-serif;
             flex-wrap: wrap;
             max-width: 100%;
             overflow-wrap: break-word; 
@@ -47,7 +42,7 @@
         }
 
         b {
-            font-family:visby-extrabold;
+            font-family: 'RussoOne';
         }
 
 
@@ -63,7 +58,7 @@
 
         h2 {
             color: #420a44;
-            font-family: 'visby-extrabold';
+            font-family: 'Arial';
         }
         
         .hover-effect:hover::after {
@@ -90,7 +85,7 @@
           }
 
         .different-color {
-            color: #f81fff;
+            color: #19e4e7;
         }
 
         nav {
@@ -106,7 +101,6 @@
             overflow:hidden;
             margin-left: -10px;
             margin-right: -10px;
-
         }
 
         .nav-main ul {
@@ -114,24 +108,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-       
-
         }
 
         .nav_main li {
-    
             display: block;
-            color: rgb(39, 8, 132); 
+            color: rgb(77, 34, 208); 
             text-align: center;
             text-decoration: none;
 
         }
 
         .nav-main a {
-            
             display: block;
             padding:10px;
-            color: rgb(77, 1, 84); 
+            color: rgb(33, 25, 93); 
             text-align: center;
             text-decoration: none;
             
@@ -143,35 +133,19 @@
             z-index:2;
         }
 
-        .logo {
-            height:170px;
-            margin:-70px;
-            margin-left:-35px;
-            margin-top:-50px;
-            transform: scale(.3);
-            float:left;
-            z-index:5;
-
-        }
-
-        .article_logo {
-            height:170px;
-
-        }
-
         a, ul, li{
             list-style-type: none;
             text-decoration: none;
         }
 
         a:link {
-            color: rgb(194, 6, 219);
+            color: rgb(33, 25, 93);
             background-color: transparent;
           }
         
           
         a:active {
-            color: rgb(240, 141, 253);
+            color: rgb(77, 34, 208);
         }
 
         .article_cont {
@@ -196,92 +170,89 @@
 
         .article_page_content {
             padding-left:15px;
-
         }
 
-        .main_cont {
+        .main_container {
             display: flex;
-            margin-right:-48px;
-            overflow: hidden;
-            padding-left:80px;
-            padding-right:40px;
-            height: 900px; 
-            
+            flex-direction: row;
+            width: 100%;
+            height: auto;
+            gap: 30px;
+            padding: 40px 60px;
+            box-sizing: border-box;
         }
 
-        .left_cont, .right_cont {
-            flex: 1;
+        .left_container, .right_container {
+            width: 33.33%;
         }
 
-        .left_cont {
-            border-radius:20px;
-            height: 800px; 
+        .left_container {
+            width: 66.66%;
+            padding: 30px;
+            height: auto;
             overflow-y: auto;
-            padding:50px;
-            padding-left:-90px;
-            margin-left:-50px;
-            margin-right:40px;
-            font-family:Avenir-Roman,Arial,'New Courier';
-            background-color:rgba(214, 193, 251, 0.204);
+            background-color: rgba(159, 212, 245, 0.204);
+            border-radius: 20px;
             transition: background-color 0.2s ease-in-out;
-            font-size:15px;
-            color:black;
+            font-family: Slabo, Arial, sans-serif;
+            font-size: 15px;
+            color: black;
         }
 
-        .left_cont:hover {
-            background-color:rgba(214, 193, 251, 0.204);
+        .left_container:hover {
+            background-color:rgba(211, 233, 246, 0.204);
             transition: background-color 0.2s ease-in-out;
         }
 
-        .left_cont:not(:hover) {
+        .left_container:not(:hover) {
             background-color:rgba(214, 193, 251, 0);
             transition-delay: 0.4s;
 
         }
 
-        .left_cont::-webkit-scrollbar {
+        .left_container::-webkit-scrollbar {
             width: 10px;
     
         }
         
-        .left_cont::-webkit-scrollbar-track {
+        .left_container::-webkit-scrollbar-track {
             background: #fee7ff43; 
             border-radius: 40px; 
         }
         
-        .left_cont::-webkit-scrollbar-thumb {
+        .left_container::-webkit-scrollbar-thumb {
             background: #9370db; 
             border-radius: 40px; 
             cursor:pointer;
         }
         
-        .left_cont::-webkit-scrollbar-thumb:hover {
+        .left_container::-webkit-scrollbar-thumb:hover {
             background: #7b68ee; 
-  
         }
 
 
-        .inner.left_cont {
+        .inner.left_container {
             padding:40px;
             padding-left:-90px;
         }
 
-        .right_cont {
-            overflow: hidden;
-            color:white;
+        .right_container {
+            width: 33.33%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
             background-color: rgba(0, 0, 0, 0.769);
-            width: 100vw;
-            margin-right:-19px;
-            padding-left:50px;
-            padding-right:50px;
+            color: white;
+            padding: 30px;
             border-radius: 20px;
-            font-size: 40px;
+            font-size: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
         }
 
-        .inner_right_cont {
+        .inner_right_container {
             margin-top: 20%;
             padding:10px;
-
         }
 
         .right_scroll {
@@ -301,27 +272,25 @@
             left: 80px;
         }
 
-        .article_form_segment {
+        .article_form_container {
             overflow: hidden;
             background-color:rgba(100, 14, 219, 0.181);
             transform:translate(0, 60px);
             margin:auto;
-            height:215px;
-            font-family:Avenir-Roman;
-            padding-bottom:70px;
+            height:50px;
+            font-family:Slabo, Arial, sans-serif;
+            padding-top: 40px;
+            padding-bottom: 16px;
             margin-left:-10px;
             margin-right:-10px;
-        
-        
-    
         }
 
-        .inner_article_form_segment {
+        .inner_article_form_container {
             padding:35px;
-            transform:translate(0, -20px);
+            transform:translate(0, -40px);
             display: flex;
             flex-direction: row;
-
+            justify-content: center;
         }
 
         .article_img {
@@ -383,7 +352,7 @@
             border-radius: 5px; 
             cursor: pointer;
             z-index:2;
-            font-family:visby-extrabold;
+            font-family:RussoOne, sans-serif;
         }
 
         button:hover {
@@ -399,7 +368,7 @@
             height:30px;
             border: 1px solid #ccc; 
             border-radius: 10px;
-            font-family: Avenir-Roman, Arial, sans-serif; 
+            font-family: Slabo, Arial, sans-serif; 
             line-height: 1.5; 
         }
 
@@ -409,7 +378,7 @@
             padding: 10px; 
             border: 1px solid #ccc; 
             border-radius: 20px;
-            font-family: Avenir-Roman, Arial, sans-serif;
+            font-family: Slabo, Arial, sans-serif;
             box-sizing: border-box;
             font-size: 14px; 
             line-height: 1.5; 
@@ -442,8 +411,6 @@
     {% load static %}
     <center>
     <nav class="nav-main">
-        <img src="{% static 'static_media/dab-stud.png'%}" alt='dabble_logo' class="logo">
-        
         <ul>
             <li><a href="/forum/threads"> Forum </a></li>
             <li><a href="/wiki/articles"> Wiki </a></li>
