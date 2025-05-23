@@ -1,0 +1,225 @@
+<style>
+@font-face {
+    font-family: 'Paradose';
+    src: url('/static/fonts/WsParadoseRegular-1jPAe.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'RussoOne';
+    src: url('/static/fonts/RussoOne-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Slabo';
+    src: url('/static/fonts/Slabo27px-Regular.otf') format('truetype');
+}
+
+body, pre {
+    animation: fadeIn 1s ease-in-out;
+    background: linear-gradient(to bottom, #a7d3ff, #ffffff);
+    font-family: Slabo, Arial, sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
+
+b {
+    font-family: 'RussoOne';
+}
+
+h1, h3 {
+    color: #118cd4;
+}
+h2 {
+    color: #420a44;
+    font-family: 'Arial';
+}
+
+.smaller_text {
+    font-size: 18px;
+    line-height: 1.3;
+    color: #ffffff5a;
+}
+
+a:link {
+    color: rgb(33, 25, 93);
+}
+a:active {
+    color: rgb(77, 34, 208);
+}
+a, ul, li {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+nav {
+    background-color: #fbfaff;
+    padding: 1px;
+    color: #420a44;
+}
+.nav-main {
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier;
+}
+.nav-main ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.nav-main a {
+    padding: 10px 30px;
+    color: rgb(33, 25, 93);
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border-radius: 10px;
+}
+
+.main_container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 30px;
+    padding: 40px 60px;
+    box-sizing: border-box;
+}
+
+.left_container {
+    width: 66.66%;
+    padding: 30px;
+    background-color: rgba(159, 212, 245, 0.204);
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: Slabo, Arial, sans-serif;
+    overflow-y: auto;
+    color: black;
+    transition: background-color 0.2s ease-in-out;
+}
+.left_container:hover {
+    background-color: rgba(211, 233, 246, 0.204);
+}
+.left_container::-webkit-scrollbar {
+    width: 10px;
+}
+.left_container::-webkit-scrollbar-track {
+    background: #fee7ff43;
+    border-radius: 40px;
+}
+.left_container::-webkit-scrollbar-thumb {
+    background: #9370db;
+    border-radius: 40px;
+}
+.left_container::-webkit-scrollbar-thumb:hover {
+    background: #7b68ee;
+}
+
+.right_container {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.769);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    font-size: 20px;
+    overflow-y: auto;
+}
+
+.button_container form {
+    display: inline-block;
+}
+button {
+    background-color: #000000;
+    color: #f1f1f1;
+    border: none;
+    padding: 5px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: RussoOne, sans-serif;
+}
+button:hover {
+    background-color: #6f548a;
+}
+
+input {
+    width: 97%;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: Slabo, Arial, sans-serif;
+    line-height: 1.5;
+}
+textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-family: Slabo, Arial, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ff00d040;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+input::placeholder, textarea::placeholder {
+    color: #999;
+}
+select {
+    background-color: white;
+    border-radius: 10px;
+    padding: 8px 30px 8px 10px;
+    cursor: pointer;
+    flex-wrap: wrap;
+}
+
+.hover-effect:hover::after {
+    content: " read?";
+    font-style: italic;
+    color: rgb(57, 236, 194);
+}
+.post_select:hover {
+    transform: scale(1.1);
+    transition: transform 0.4s ease-in-out;
+    background: linear-gradient(to right, rgba(164, 144, 255, 0.4), rgba(255, 255, 255, 0.2));
+    padding: 10px;
+    border-radius: 20px;
+}
+.article_page {
+    margin: 5px;
+    padding: 70px 300px 70px 50px;
+    background-color: rgb(250, 249, 255);
+    border-radius: 50px;
+    color: black;
+}
+.article_page_content {
+    padding-left: 15px;
+}
+.article_form_container {
+    background-color: rgba(100, 14, 219, 0.181);
+    margin: auto -10px;
+    padding: 40px 35px 16px;
+    font-family: Slabo, Arial, sans-serif;
+    transform: translateY(60px);
+}
+.inner_article_form_container {
+    display: flex;
+    justify-content: center;
+    padding: 0 35px;
+    transform: translateY(-40px);
+}
+</style>
+
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>
