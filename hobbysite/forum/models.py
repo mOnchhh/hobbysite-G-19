@@ -2,8 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.conf import settings
 
-from accounts.models import Profile
-
 class ThreadCategory(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -43,7 +41,19 @@ class Thread(models.Model):
     )
 
     def __str__(self):
-        return '{}'.format(self.name)
+        return f"{self.title} - {self.entry}"
+    
+    def get_absolute_url(self):
+        return reverse('forum:thread', args=[str(self.pk)])
+    
+    def get_create_url(self):
+        return reverse('forum:create', args=[str(self.pk)])
+    
+    def get_update_url(self):
+        return reverse('forum:update', args=[str(self.pk)])
+    
+    def get_delete_url(self):
+        return reverse('forum:delete', args=[str(self.pk)])
 
 class Comment(models.Model):
     author = models.ForeignKey(
@@ -68,12 +78,11 @@ class Comment(models.Model):
         null=True
     )
 
-
     class Meta:
         ordering = ['-created_on']
 
     def __str__(self):
-        return f"{self.title} - {self.entry}"
+        return f"{self.thread.title} - {self.content}"
     
     def get_absolute_url(self):
         return reverse('forum:thread', args=[str(self.pk)])
