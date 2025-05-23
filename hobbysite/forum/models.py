@@ -42,6 +42,9 @@ class Thread(models.Model):
         null=True
     )
 
+    def __str__(self):
+        return '{}'.format(self.name)
+
 class Comment(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
