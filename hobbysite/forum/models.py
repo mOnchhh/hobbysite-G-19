@@ -52,7 +52,7 @@ class Comment(models.Model):
         Thread,
         on_delete=models.CASCADE,
         null=True,
-        related_name='comment'
+        related_name='forum_comment'
     )
     entry = models.TextField()
     created_on = models.DateTimeField(

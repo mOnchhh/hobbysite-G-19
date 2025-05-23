@@ -68,7 +68,7 @@ class Comment(models.Model):
         Article,
         on_delete=models.CASCADE,
         null=True,
-        related_name='comment'
+        related_name='wiki_comment'
     )
     entry = models.TextField()
     created_on = models.DateTimeField(
