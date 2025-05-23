@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="thread_form_segment">  
+    <div class="inner_thread_form_segment">
+        <div class="thread_content"><h2>Create a new thread? </h2>
+            <p>Share your ideas and open a discussion. 
+                Start your thread here.
+            </p>
+        </div>
+        <div class="thread_content">
+            <form method="POST">
+
+                {% csrf_token %}
+                <label for="thread_title">
+                    <span>Thread Title: </span><br><br>
+                    <input type="text" id="thread_title" name="thread_title" placeholder="Write the title of your entry...">
+                </label>
+        
+                <br><br>
+                <textarea id="thread_entry" name="thread_entry" placeholder="Start your entry here..."></textarea>
+                
+                <select id="category" name="category">
+                    {% for group in category %}
+                    <option value="{{ group.pk }}">{{ group }}</option>
+                    {% endfor %}
+                </select>
+                
+                <button>Submit</button>
+            </form>
+
+        </div>
+        <div class="thread_content">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
